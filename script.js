@@ -44,7 +44,7 @@
     const calcWidget = document.getElementById('calcWidget');
     if (calcWidget) {
         calcWidget.addEventListener('click', () => {
-            let expr = prompt('🧮 Простой калькулятор\nВведите выражение (например, 15 + 30):', '10 + 20');
+            let expr = prompt('🧮 Простой калькулятор\nВведите выражение:');
             if (expr) {
                 try {
                     let result = Function('"use strict";return (' + expr + ')')();
