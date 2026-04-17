@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Контакты | Дмитриев Георгий</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Прелоадер -->
+<section id="preloader">
+    <article class="loader"></article>
+    <p>Загрузка портфолио...</p>
+</section>
+
+<main>
+    <article class="glass-card">
+        <header>
+            <figure class="avatar" id="mainAvatar">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%236c9eff'/%3E%3Ctext x='50' y='67' font-size='40' text-anchor='middle' fill='white' font-family='Arial'%3E🚀%3C/text%3E%3C/svg%3E" alt="Аватар">
+                <figcaption class="visually-hidden">Аватар пользователя</figcaption>
+            </figure>
+            <hgroup>
+                <h1>Дмитриев Георгий</h1>
+                <p>Студент / Разработчик</p>
+                <p class="flex-row">
+                    <span class="badge"><i class="fas fa-map-marker-alt"></i> Великий Новгород</span>
+                    <span class="badge"><i class="fas fa-briefcase"></i> без опыта</span>
+                </p>
+            </hgroup>
+        </header>
+
+        <nav class="page-nav">
+            <a href="index.html" class="nav-link">🏠 Главная</a>
+            <a href="skills.html" class="nav-link">💻 Навыки</a>
+            <a href="projects.html" class="nav-link">📁 Проекты</a>
+            <a href="contacts.html" class="nav-link active">📞 Контакты</a>
+        </nav>
+
+        <section>
+            <h2><i class="fas fa-envelope"></i> Связаться со мной</h2>
+            <ul class="contact-list">
+                <li>
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/dangerofjoe" target="_blank">github.com/dangerofjoe</a>
+                    <button class="copy-btn copy-github">Копировать</button>
+                </li>
+                <li>
+                    <i class="fas fa-envelope"></i>
+                    <span>gosha.top2010@gmail.com</span>
+                    <button class="copy-btn copy-email">Копировать</button>
+                </li>
+                <li>
+                    <i class="fab fa-telegram"></i>
+                    <span>@dangerofjoe</span>
+                    <button class="copy-btn copy-telegram">Копировать</button>
+                </li>
+                <li>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Великий Новгород, Россия</span>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-comment"></i> Написать сообщение</h2>
+            <form id="contactForm">
+                <textarea id="messageInput" rows="5" placeholder="Ваше сообщение..."></textarea>
+                <button type="submit" class="btn-primary">📤 Отправить сообщение</button>
+            </form>
+            <p class="form-note"><i class="fas fa-info-circle"></i> Сообщение будет скопировано в буфер обмена (демо-режим).</p>
+        </section>
+    </article>
+</main>
+
+<nav class="floating-panel">
+    <button id="themeToggle"><i class="fas fa-moon"></i></button>
+    <button id="bubbleBtn"><i class="fas fa-comment-dots"></i></button>
+</nav>
+
+<footer id="toastMsg" class="toast"></footer>
+
+<script src="script.js"></script>
+</body>
+</html>
