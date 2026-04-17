@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Проекты | Дмитриев Георгий</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Прелоадер -->
+<section id="preloader">
+    <article class="loader"></article>
+    <p>Загрузка портфолио...</p>
+</section>
+
+<main>
+    <article class="glass-card">
+        <header>
+            <figure class="avatar" id="mainAvatar">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%236c9eff'/%3E%3Ctext x='50' y='67' font-size='40' text-anchor='middle' fill='white' font-family='Arial'%3E🚀%3C/text%3E%3C/svg%3E" alt="Аватар">
+                <figcaption class="visually-hidden">Аватар пользователя</figcaption>
+            </figure>
+            <hgroup>
+                <h1>Дмитриев Георгий</h1>
+                <p>Студент / Разработчик</p>
+                <p class="flex-row">
+                    <span class="badge"><i class="fas fa-map-marker-alt"></i> Великий Новгород</span>
+                    <span class="badge"><i class="fas fa-briefcase"></i> без опыта</span>
+                </p>
+            </hgroup>
+        </header>
+
+        <nav class="page-nav">
+            <a href="index.html" class="nav-link">🏠 Главная</a>
+            <a href="skills.html" class="nav-link">💻 Навыки</a>
+            <a href="projects.html" class="nav-link active">📁 Проекты</a>
+            <a href="contacts.html" class="nav-link">📞 Контакты</a>
+        </nav>
+
+        <section>
+            <h2><i class="fas fa-project-diagram"></i> Мои проекты</h2>
+            <section class="projects-grid">
+                <article class="project-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Портфолио сайт</h3>
+                    <p>Современное резюме с анимациями и адаптивным дизайном. Использованы HTML5, CSS3 и JavaScript.</p>
+                    <footer class="project-tags">
+                        <span class="badge">HTML/CSS</span>
+                        <span class="badge">JavaScript</span>
+                    </footer>
+                </article>
+                <article class="project-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Telegram бот со встроенным gtp-4 mini.</h3>
+                    <p>Бот для решения небольших задач, а так же для проведения диалогов.</p>
+                    <footer class="project-tags">
+                        <span class="badge">Python</span>
+                        <span class="badge">Telegram API</span>
+                    </footer>
+                </article>
+            </section>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-trophy"></i> Достижения</h2>
+            <ul class="achievements-list">
+                <li>🏆 <strong>Призёр муниципальной олимпиады и участник региональной олимпиады по информатике</strong> (2025 - 2026)</li>
+                <li>📜 <strong>Сертификат Яндекс Лицея</strong> — успешное окончание курса «Основы Python»</li>
+                <li>⚡ <strong>2 место в «Чемпионате высоких технологий»</strong> (регион)</li>
+            </ul>
+        </section>
+    </article>
+</main>
+
+<nav class="floating-panel">
+    <button id="themeToggle"><i class="fas fa-moon"></i></button>
+    <button id="bubbleBtn"><i class="fas fa-comment-dots"></i></button>
+</nav>
+
+<footer id="toastMsg" class="toast"></footer>
+
+<script src="script.js"></script>
+</body>
+</html>
