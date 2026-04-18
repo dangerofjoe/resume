@@ -41,21 +41,6 @@
         });
     }
 
-    const calcWidget = document.getElementById('calcWidget');
-    if (calcWidget) {
-        calcWidget.addEventListener('click', () => {
-            let expr = prompt('🧮 Простой калькулятор\nВведите выражение:');
-            if (expr) {
-                try {
-                    let result = Function('"use strict";return (' + expr + ')')();
-                    showToast(`Результат: ${result}`, 5000);
-                } catch(e) {
-                    showToast('Ошибка в выражении', 2000);
-                }
-            }
-        });
-    }
-
     let audio = null;
     let isPlaying = false;
     const musicWidget = document.getElementById('musicWidget');
@@ -200,3 +185,135 @@
 
     setTimeout(() => showToast('✨ Добро пожаловать! ✨', 2500), 800);
 })();
+
+function showToastMsg(text, duration = 3000) {
+    const toast = document.getElementById('toastMsg');
+    if (!toast) {
+        const newToast = document.createElement('footer');
+        newToast.id = 'toastMsg';
+        newToast.className = 'toast';
+        document.body.appendChild(newToast);
+    }
+    const toastEl = document.getElementById('toastMsg');
+    if (toastEl) {
+        toastEl.textContent = text;
+        toastEl.classList.add('show');
+        setTimeout(() => toastEl.classList.remove('show'), duration);
+    }
+}
+
+function createCalculator() {
+    const oldModal = document.querySelector('.calculator-modal');
+    if (oldModal) oldModal.remove();
+    
+    const modal = document.createElement('article');
+    modal.className = 'glass-card calculator-modal';
+    modal.style.position = 'fixed';
+    modal.style.top = '50%';
+    modal.style.left = '50%';
+    modal.style.transform = 'translate(-50%, -50%)';
+    modal.style.width = '340px';
+    modal.style.padding = '20px';
+    modal.style.zIndex = '1000';
+    modal.style.backgroundColor = '#1a2a3a';
+    modal.style.borderRadius = '24px';
+    modal.style.border = '2px solid #00d4ff';
+    
+    modal.innerHTML = `
+        <h3 style="color: #00d4ff; margin: 0 0 15px 0; text-align: center;">🧮 Калькулятор</h3>
+        <input type="text" id="calcDisplay" style="width: 100%; padding: 15px; font-size: 1.5rem; background: #0a1428; color: #00d4ff; border: 1px solid #00d4ff; border-radius: 12px; margin-bottom: 15px; text-align: right; font-family: monospace;" readonly>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+            <button class="calc-key" data-val="7" style="padding: 12px; font-size: 1.2rem; background: #2a3a4a; border: none; border-radius: 10px; color: white; cursor: pointer;">7</button>
+            <button class="calc-key" data-val="8" style="padding: 12px; font-size: 1.2rem; background: #2a3a4a; border: none; border-radius: 10px; color: white; cursor: pointer;">8</button>
+            <button class="calc-key" data-val="9" style="padding: 12px; font-size: 1.2rem; background: #2a3a4a; border: none; border-radius: 10px; color: white; cursor: pointer;">9</button>
+            <button class="calc-key" data-val="/" style="padding: 12px; font-size: 1.2rem; background: #ff8c00; border: none; border-radius: 10px; color: white; cursor: pointer;">÷</button>
+            
+            <button class="calc-key" data-val="4" style="padding: 12px; font-size: 1.2rem; background: #2a3a4a; border: none; border-radius: 10px; color: white; cursor: pointer;">4</button>
+            <button class="calc-key" data-val="5" style="padding: 12px; font-size: 1.2rem; background: #2a3a4a; border: none; border-radius: 10px; color: white; cursor: pointer;">5</button>
+            <button class="calc-key" data-val="6" style="padding: 12px; font-size: 1.2rem; background: #2a3a4a; border: none; border-radius: 10px; color: white; cursor: pointer;">6</button>
+            <button class="calc-key" data-val="*" style="padding: 12px; font-size: 1.2rem; background: #ff8c00; border: none; border-radius: 10px; color: white; cursor: pointer;">×</button>
+            
+            <button class="calc-key" data-val="1" style="padding: 12px; font-size: 1.2rem; background: #2a3a4a; border: none; border-radius: 10px; color: white; cursor: pointer;">1</button>
+            <button class="calc-key" data-val="2" style="padding: 12px; font-size: 1.2rem; background: #2a3a4a; border: none; border-radius: 10px; color: white; cursor: pointer;">2</button>
+            <button class="calc-key" data-val="3" style="padding: 12px; font-size: 1.2rem; background: #2a3a4a; border: none; border-radius: 10px; color: white; cursor: pointer;">3</button>
+            <button class="calc-key" data-val="-" style="padding: 12px; font-size: 1.2rem; background: #ff8c00; border: none; border-radius: 10px; color: white; cursor: pointer;">-</button>
+            
+            <button class="calc-key" data-val="0" style="padding: 12px; font-size: 1.2rem; background: #2a3a4a; border: none; border-radius: 10px; color: white; cursor: pointer;">0</button>
+            <button class="calc-key" data-val="." style="padding: 12px; font-size: 1.2rem; background: #2a3a4a; border: none; border-radius: 10px; color: white; cursor: pointer;">.</button>
+            <button class="calc-key" data-val="C" style="padding: 12px; font-size: 1.2rem; background: #e74c3c; border: none; border-radius: 10px; color: white; cursor: pointer;">C</button>
+            <button class="calc-key" data-val="+" style="padding: 12px; font-size: 1.2rem; background: #ff8c00; border: none; border-radius: 10px; color: white; cursor: pointer;">+</button>
+            
+            <button class="calc-key" data-val="(" style="padding: 12px; font-size: 1.2rem; background: #2a3a4a; border: none; border-radius: 10px; color: white; cursor: pointer;">(</button>
+            <button class="calc-key" data-val=")" style="padding: 12px; font-size: 1.2rem; background: #2a3a4a; border: none; border-radius: 10px; color: white; cursor: pointer;">)</button>
+            <button class="calc-key" data-val="%" style="padding: 12px; font-size: 1.2rem; background: #2a3a4a; border: none; border-radius: 10px; color: white; cursor: pointer;">%</button>
+            <button class="calc-key" data-val="=" style="padding: 12px; font-size: 1.2rem; background: #27ae60; border: none; border-radius: 10px; color: white; cursor: pointer;">=</button>
+        </div>
+        <button id="closeCalcModal" style="margin-top: 15px; width: 100%; padding: 10px; background: #6c9eff; border: none; border-radius: 12px; color: white; cursor: pointer; font-size: 1rem;">✖ Закрыть</button>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    const display = modal.querySelector('#calcDisplay');
+    let expr = '';
+    
+    function updateDisplay() {
+        display.value = expr || '0';
+    }
+    
+    function calculateResult() {
+        try {
+            let toCalc = expr.replace(/×/g, '*');
+            let result = Function('"use strict";return (' + toCalc + ')')();
+            expr = String(result);
+            updateDisplay();
+            showToastMsg(`✅ Результат: ${result}`, 3000);
+        } catch(e) {
+            showToastMsg('❌ Ошибка в выражении', 2000);
+            expr = '';
+            updateDisplay();
+        }
+    }
+    
+    modal.querySelectorAll('.calc-key').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const val = btn.getAttribute('data-val');
+            if (val === 'C') {
+                expr = '';
+            } else if (val === '=') {
+                calculateResult();
+                return;
+            } else {
+                expr += val;
+            }
+            updateDisplay();
+        });
+    });
+    
+    modal.querySelector('#closeCalcModal').addEventListener('click', () => {
+        modal.remove();
+    });
+}
+
+function initCalculatorWidget() {
+    let calcBtn = document.getElementById('calcWidget');
+    if (!calcBtn) {
+        const widgets = document.querySelector('.widgets');
+        if (widgets) {
+            calcBtn = document.createElement('article');
+            calcBtn.className = 'widget';
+            calcBtn.id = 'calcWidget';
+            calcBtn.innerHTML = '<i class="fas fa-calculator"></i><footer>Калькулятор</footer>';
+            calcBtn.style.cursor = 'pointer';
+            widgets.appendChild(calcBtn);
+        }
+    }
+    if (calcBtn) {
+        calcBtn.addEventListener('click', createCalculator);
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCalculatorWidget);
+} else {
+    initCalculatorWidget();
+}
