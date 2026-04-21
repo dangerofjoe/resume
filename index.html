@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Георгий Дмитриев | Резюме</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li><a href="#about" class="nav-link">О себе</a></li>
+            <li><a href="#skills" class="nav-link">Навыки</a></li>
+            <li><a href="#education" class="nav-link">Образование</a></li>
+            <li><a href="#projects" class="nav-link">Проекты</a></li>
+            <li><a href="#contact" class="nav-link">Контакты</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <header class="header" id="about">
+            <figure class="avatar">
+                <img src="avatar.jpg" alt="Аватар" onerror="this.src='https://via.placeholder.com/90?text=Avatar'">
+            </figure>
+            <section class="title">
+                <h1>Дмитриев Георгий</h1>
+                <p>Студент / Разработчик</p>
+                <footer class="location">
+                    <span><i class="fas fa-map-marker-alt"></i> Великий Новгород, РФ</span>
+                    <span><i class="fas fa-briefcase"></i> без опыта работы</span>
+                </footer>
+            </section>
+            <address class="contact-links">
+                <a href="https://github.com/dangerofjoe" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="mailto:gosha.top2010@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                <button id="contactBtn" class="contact-btn"><i class="fas fa-paper-plane"></i> Связаться</button>
+            </address>
+        </header>
+
+        <section class="section" id="about-section">
+            <h2><i class="fas fa-user"></i> О себе</h2>
+            <p>Привет! Я Георгий — начинающий разработчик, увлечённый программированием и современными технологиями. Участвую в олимпиадах по информатике, призёр муниципальных этапов. Ищу стажировку, чтобы применять свои знания на практике и расти профессионально.</p>
+            <p>Кроме кода, интересуюсь стратегическими играми, читаю научно-популярную литературу, веду здоровый образ жизни. Люблю решать нестандартные задачи и постоянно учусь новому.</p>
+            <footer class="tags">
+                <span class="tag">Командная работа</span>
+                <span class="tag">Креативность</span>
+                <span class="tag">Тайм-менеджмент</span>
+                <span class="tag">Быстрая обучаемость</span>
+            </footer>
+        </section>
+
+        <section class="section" id="skills">
+            <h2><i class="fas fa-code"></i> Технические навыки</h2>
+            <ul class="skills-list">
+                <li>Python <span>75%</span></li>
+                <li>C++ <span>30%</span></li>
+                <li>JavaScript <span>20%</span></li>
+                <li>C# <span>30%</span></li>
+                <li>HTML / CSS <span>40%</span></li>
+            </ul>
+        </section>
+
+        <section class="section" id="education">
+            <h2><i class="fas fa-graduation-cap"></i> Образование</h2>
+            <article class="education-item">
+                <h3>МАОУ Гимназия № 4</h3>
+                <p class="date">2017 – 2028 · физико-математический класс</p>
+                <p class="desc">Углублённое изучение математики, информатики, физики. Участие в олимпиадах.</p>
+            </article>
+            <article class="education-item">
+                <h3>Яндекс Лицей</h3>
+                <p class="date">2025 – 2026 · Python, алгоритмы</p>
+                <p class="desc">Курс по основам Python, решение алгоритмических задач, работа с данными.</p>
+            </article>
+            <article class="education-item">
+                <h3>Онлайн-курс «Веб-разработка для начинающих»</h3>
+                <p class="date">2024 · Stepik</p>
+                <p class="desc">HTML, CSS, основы JavaScript, адаптивная вёрстка.</p>
+            </article>
+        </section>
+
+        <section class="section" id="achievements-languages">
+            <div class="two-columns">
+                <div class="column">
+                    <h3><i class="fas fa-trophy"></i> Достижения</h3>
+                    <ul class="achievements">
+                        <li>🏆 Призёр муниципальной олимпиады по информатике (2024)</li>
+                        <li>📜 Сертификат Яндекс Лицея — «Python для начинающих»</li>
+                        <li>⚡ Участник всероссийской олимпиады «Высокие технологии» (финал)</li>
+                        <li>🎓 Грамота за успехи в изучении программирования</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3><i class="fas fa-language"></i> Языки</h3>
+                    <ul class="lang-list">
+                        <li>Русский (родной) <span>C2</span></li>
+                        <li>Английский <span>B1 (Intermediate)</span></li>
+                    </ul>
+                    <h3 style="margin-top: 1.5rem;"><i class="fas fa-heart"></i> Хобби</h3>
+                    <ul class="hobby-list">
+                        <li>🎮 Стратегические видеоигры</li>
+                        <li>📚 Книги по IT и саморазвитию</li>
+                        <li>♟️ Шахматы (разряд)</li>
+                        <li>🚴 Велоспорт</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="projects">
+            <h2><i class="fas fa-project-diagram"></i> Проекты</h2>
+            <div class="projects-grid">
+                <article class="project-item">
+                    <i class="fas fa-globe"></i>
+                    <h3>Сайт-портфолио</h3>
+                    <p>Адаптивный сайт-резюме с якорной навигацией, модальной формой связи, светлым дизайном.</p>
+                    <span class="project-tech">HTML/CSS/JS</span>
+                </article>
+                <article class="project-item">
+                    <i class="fas fa-robot"></i>
+                    <h3>Telegram-бот для задач</h3>
+                    <p>Бот на Python с напоминаниями, хранением данных в SQLite, inline-клавиатурами.</p>
+                    <span class="project-tech">Python, aiogram</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <h2><i class="fas fa-envelope"></i> Контакты</h2>
+            <p>Вы можете связаться со мной любым удобным способом:</p>
+            <ul class="contact-list">
+                <li><i class="fab fa-github"></i> GitHub: <a href="https://github.com/dangerofjoe" target="_blank">github.com/dangerofjoe</a></li>
+                <li><i class="fas fa-envelope"></i> Email: <a href="mailto:gosha.top2010@gmail.com">gosha.top2010@gmail.com</a></li>
+                <li><i class="fab fa-telegram"></i> Telegram: <span class="copy-text" data-copy="@dangerofjoe">@dangerofjoe</span> <button class="copy-btn">Копировать</button></li>
+            </ul>
+            <button id="contactBtnBottom" class="submit-btn" style="margin-top: 1rem; width: auto; display: inline-block;">✍️ Написать сообщение</button>
+        </section>
+    </main>
+
+    <dialog id="contactModal">
+        <article class="modal-content">
+            <header class="modal-header">
+                <h3>Свяжитесь со мной</h3>
+                <button id="closeModal" class="close-btn">&times;</button>
+            </header>
+            <form id="contactForm" action="https://formspree.io/f/mzdyaoyb" method="POST">
+                <label>
+                    <span>Ваше имя</span>
+                    <input type="text" name="name" required>
+                </label>
+                <label>
+                    <span>Email для ответа</span>
+                    <input type="email" name="email" required>
+                </label>
+                <label>
+                    <span>Сообщение</span>
+                    <textarea name="message" rows="5" required></textarea>
+                </label>
+                <button type="submit" class="submit-btn">Отправить сообщение</button>
+                <p class="form-note">Нажимая «Отправить», вы соглашаетесь с обработкой данных.</p>
+            </form>
+        </article>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+</html>
